@@ -109,10 +109,10 @@ static const char *format_int(unsigned int d) {
 
 void oled_render_layer(void) {
     oled_write_P(PSTR("layer"), false);
+    oled_advance_page(true);
 
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
+    oled_advance_page(true);
+    oled_advance_page(true);
 
     switch (get_highest_layer(layer_state)) {
         case 0:
@@ -139,24 +139,24 @@ void oled_render_uptime(void) {
 
     oled_write_P(PSTR("up"), false);
 
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
+    oled_advance_page(true);
+    oled_advance_page(true);
 
     oled_write_P(PSTR("H: "), false);
     oled_write(format_int((uptime_s / 60 * 60) % 60), false);
-    oled_write_ln_P(PSTR(" "), false);
+    oled_advance_page(true);
 
     oled_write_P(PSTR("M: "), false);
     oled_write(format_int((uptime_s / 60) % 60), false);
-    oled_write_ln_P(PSTR(" "), false);
+    oled_advance_page(true);
 
     oled_write_P(PSTR("S: "), false);
     oled_write(format_int(uptime_s % 60), false);
-    oled_write_ln_P(PSTR(" "), false);
+    oled_advance_page(true);
 
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
-    oled_write_ln_P(PSTR(" "), false);
+    oled_advance_page(true);
+    oled_advance_page(true);
+    oled_advance_page(true);
 
     switch (uptime_s % 4) {
         case 0:
