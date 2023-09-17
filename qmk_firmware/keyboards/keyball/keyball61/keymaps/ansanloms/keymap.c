@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include QMK_KEYBOARD_H
 
 #include "quantum.h"
@@ -28,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_DEL   , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                  KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     , KC_INT3  ,
     KC_TAB   , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                  KC_H     , KC_J     , KC_K     , KC_L     , KC_SCLN  , S(KC_7)  ,
     MO(1)    , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     , KC_RBRC  ,              KC_NUHS, KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  , KC_RSFT  ,
-    _______  , KC_LCTL  , KC_LALT  , KC_LGUI,LT(1,KC_LANG2),LT(2,KC_SPC),LT(3,KC_LANG1),    KC_BSPC,LT(2,KC_ENT),LT(1,KC_LANG2),KC_RGUI, _______ , KC_RALT  , KC_PSCR
+    _______  , KC_LCTL  , KC_LALT  , KC_LGUI,LT(1,KC_LNG2),LT(2,KC_SPC),LT(3,KC_LNG1),    KC_BSPC,LT(2,KC_ENT),LT(1,KC_LNG2),KC_RGUI, _______ , KC_RALT  , KC_PSCR
   ),
 
   [1] = LAYOUT_universal(
@@ -51,8 +50,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_TOG  , _______  , _______  , _______  , _______  , _______  ,                                  RGB_M_P  , RGB_M_B  , RGB_M_R  , RGB_M_SW , RGB_M_SN , RGB_M_K  ,
     RGB_MOD  , RGB_HUI  , RGB_SAI  , RGB_VAI  , _______  , _______  ,                                  RGB_M_X  , RGB_M_G  , RGB_M_T  , RGB_M_TW , _______  , _______  ,
     RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , _______  , _______  ,                                  CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE , KBC_RST  ,
-    _______  , _______  , SCRL_DVD , SCRL_DVI , SCRL_MO  , SCRL_TO  , EEP_RST  ,            EEP_RST  , KC_HOME  , KC_PGDN  , KC_PGUP  , KC_END   , _______  , _______  ,
-    RESET    , _______  , KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , _______  ,            _______  , KC_BSPC  , _______  , _______  , _______  , _______  , RESET
+    _______  , _______  , SCRL_DVD , SCRL_DVI , SCRL_MO  , SCRL_TO  , EE_CLR  ,            EE_CLR  , KC_HOME  , KC_PGDN  , KC_PGUP  , KC_END   , _______  , _______  ,
+    QK_BOOT    , _______  , KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , _______  ,            _______  , KC_BSPC  , _______  , _______  , _______  , _______  , QK_BOOT
   ),
 };
 // clang-format on
@@ -83,37 +82,19 @@ static const char PROGMEM number_3[] = {
     0,  0,  0,  0,  0,  0,  0,  0,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,255,255, 15,  7,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,192,224,224,224,224,224,120, 88,196,196,196,198,131,129,129,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  7, 15, 15,255,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,192,192,192,192,192,192,192,128,128,128,128,128,192, 64, 56, 56, 15,  3,  0,  0,  0,  0,  0,  0,  0,
 };
 
-
-static const char PROGMEM kirby_0[] = {
-    0,  0,  0,  0,  0,  0,  0,  0, 56,196,130,  2,  4,  2,  2,  1,225,  1,225,  2,  2, 12,226, 60,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  7, 56, 68,130,130,204,112, 64,232,144,136, 68, 35, 30,  0,  0,  0,  0,  0,  0,  0,  0,
-};
-
-static const char PROGMEM kirby_1[] = {
-    0,  0,  0,  0,  0,  0,  0,  0, 28,226, 65,  1,  1,  2,  1,  1,  1,113,  1,113,  2,  5,193, 62,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,121,134,136, 80, 48, 96,160,160, 96, 34, 32, 16, 12,  3,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-};
-
-static const char PROGMEM kirby_2[] = {
-    0,  0,  0,  0,  0,  0,  0,  0,192, 32, 24,  4,  2,  2,  1,  1,  1,225,  1,226,  2, 12, 48,192,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  3, 68,168,152,156,144,160, 96, 96, 96,228,160,144,156,168, 71,  0,  0,  0,  0,  0,  0,  0,  0,
-};
-
-static const char PROGMEM kirby_3[] = {
+static const char PROGMEM animation_0[] = {
     0,  0,  0,  0,  0,  0,  0,  0,  0,240, 12,  2,  2,  1, 65,129,  1,  1,  1,  2,114, 12,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 60, 71, 70, 76, 52, 36, 34, 33, 32, 32, 96,160,146,152,151, 96,  0,  0,  0,  0,  0,  0,  0,  0,
 };
 
-static const char *format_int(unsigned int d) {
-    static char buf[6];
-    itoa(d, buf, 10);
+static const char PROGMEM animation_1[] = {
+    0,  0,  0,  0,  0,  0,  0,  0,240,  8, 12, 10,  2,  1,  1,  1,113,  1,114,  2, 12,248,  8,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 29, 39, 72,144,144,160, 96, 32, 34, 80, 80, 76, 35, 29,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+};
 
-    return buf;
-}
+static const char PROGMEM animation_2[] = {
+    0,  0,  0,  0,  0,  0,  0,  0,192, 48,  8,  4,  4,  2,  2,  2,  2,226,  2,228, 24,224, 64,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  3,  4,  8, 62, 88,144,160,160,160,224,164, 96, 16, 15,  8,  7,  0,  0,  0,  0,  0,  0,  0,  0,
+};
 
 void oled_render_layer(void) {
-    oled_write_P(PSTR("layer"), false);
-    oled_advance_page(true);
-
-    oled_advance_page(true);
-    oled_advance_page(true);
-
     switch (get_highest_layer(layer_state)) {
         case 0:
             oled_write_raw_P(number_0, sizeof(number_0));
@@ -133,56 +114,46 @@ void oled_render_layer(void) {
     }
 }
 
-void oled_render_uptime(void) {
+void oled_render_animation(void) {
     static uint32_t uptime_s;
     uptime_s = timer_read32() / 1000;
 
-    oled_write_P(PSTR("up"), false);
-
-    oled_advance_page(true);
-    oled_advance_page(true);
-
-    oled_write_P(PSTR("H: "), false);
-    oled_write(format_int((uptime_s / 60 * 60) % 60), false);
-    oled_advance_page(true);
-
-    oled_write_P(PSTR("M: "), false);
-    oled_write(format_int((uptime_s / 60) % 60), false);
-    oled_advance_page(true);
-
-    oled_write_P(PSTR("S: "), false);
-    oled_write(format_int(uptime_s % 60), false);
-    oled_advance_page(true);
-
-    oled_advance_page(true);
-    oled_advance_page(true);
-    oled_advance_page(true);
-
     switch (uptime_s % 4) {
         case 0:
-            oled_write_raw_P(kirby_0, sizeof(kirby_0));
+            oled_write_raw_P(animation_0, sizeof(animation_0));
             break;
         case 1:
-            oled_write_raw_P(kirby_1, sizeof(kirby_1));
+            oled_write_raw_P(animation_1, sizeof(animation_1));
             break;
         case 2:
-            oled_write_raw_P(kirby_2, sizeof(kirby_2));
+            oled_write_raw_P(animation_2, sizeof(animation_2));
             break;
         case 3:
-            oled_write_raw_P(kirby_3, sizeof(kirby_3));
+            oled_write_raw_P(animation_1, sizeof(animation_1));
             break;
         default:
-            oled_write_raw_P(kirby_0, sizeof(kirby_0));
+            oled_write_raw_P(animation_0, sizeof(animation_0));
             break;
     }
 }
 
 void oledkit_render_info_user(void) {
+    oled_advance_page(true);
+    oled_advance_page(true);
+    oled_advance_page(true);
+
     oled_render_layer();
 }
 
 void oledkit_render_logo_user(void) {
-    oled_render_uptime();
+    oled_advance_page(true);
+    oled_advance_page(true);
+    oled_advance_page(true);
+    oled_advance_page(true);
+    oled_advance_page(true);
+    oled_advance_page(true);
+
+    oled_render_animation();
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
