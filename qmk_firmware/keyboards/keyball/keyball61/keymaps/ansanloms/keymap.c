@@ -121,3 +121,19 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 #endif
+
+void pointing_device_init_user(void) {
+    set_auto_mouse_enable(true);
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    uint8_t layer = biton32(state);
+
+    if (get_auto_mouse_enable() && layer == get_auto_mouse_layer()) {
+        rgblight_sethsv(HSV_TURQUOISE);
+    } else {
+        rgblight_sethsv(HSV_OFF);
+    }
+
+    return state;
+}
