@@ -33,8 +33,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_universal(
     TO(0)    , _______  , _______  , _______  , _______  , _______  ,                                  XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,
     _______  , _______  , _______  , _______  , _______  , _______  ,                                  XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,
-    _______  , _______  , _______  , _______  , _______  , _______  ,                                  XXXXXXX  , KC_BTN1  , KC_BTN2  , SCRL_MO  , XXXXXXX  , XXXXXXX  ,
-    _______  , _______  , _______  , _______  , _______  , _______  , _______  ,            _______  , XXXXXXX  , KC_BTN4  , KC_BTN5  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                  XXXXXXX  , KC_BTN1  , KC_BTN2  , SCRL_MO  , KC_WH_U  , XXXXXXX  ,
+    _______  , _______  , _______  , _______  , _______  , _______  , _______  ,            _______  , XXXXXXX  , KC_BTN4  , KC_BTN5  , XXXXXXX  , KC_WH_D  , XXXXXXX  ,
     _______  , _______  , _______  , _______  , _______  , _______  , _______  ,            _______  , _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______
   ),
 
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [3] = LAYOUT_universal(
-    TO(0)    , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                  XXXXXXX  , RGB_TOG  , KC_MUTE  , KC_VOLD  , KC_VOLU  , XXXXXXX  ,
+    TO(0)    , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                  XXXXXXX  , XXXXXXX  , KC_MUTE  , KC_VOLD  , KC_VOLU  , XXXXXXX  ,
     _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                  XXXXXXX  , KC_SLEP  , KC_MPRV  , KC_MPLY  , KC_MNXT  , XXXXXXX  ,
     _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                  KC_LEFT  , KC_DOWN  , KC_UP    , KC_RIGHT , XXXXXXX  , XXXXXXX  ,
     _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,            _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,
@@ -57,8 +57,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [4] = LAYOUT_universal(
     KC_ESC   , KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                                  KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   , KC_F11   ,
     KC_TAB   , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                  XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,
-    KC_LCTL  , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                  XXXXXXX  , KC_BTN1  , KC_BTN2  , SCRL_MO  , XXXXXXX  , XXXXXXX  ,
-    KC_LSFT  , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     , XXXXXXX  ,            XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , KC_SLSH  , KC_RSFT  ,
+    KC_LCTL  , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                  XXXXXXX  , KC_BTN1  , KC_BTN2  , SCRL_MO  , KC_WH_U  , XXXXXXX  ,
+    KC_LSFT  , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     , XXXXXXX  ,            XXXXXXX  , XXXXXXX  , KC_M     , XXXXXXX  , XXXXXXX  , KC_SLSH  , KC_RSFT  ,
     XXXXXXX  , KC_LALT  , KC_LGUI  , XXXXXXX  , XXXXXXX  , KC_SPC   , XXXXXXX  ,            XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______
   ),
 };
@@ -93,11 +93,21 @@ static const char PROGMEM number_4[] = {
     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,255,255,255,255,255,255,  0,  0,  0,  0,  0,  0,  0,
 };
 
+static const char PROGMEM animation_0[] = {
+    0,  0,  0,  0,  0,  0,  0,  0,  0,240, 12,  2,  2,  1, 65,129,  1,  1,  1,  2,114, 12,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 60, 71, 70, 76, 52, 36, 34, 33, 32, 32, 96,160,146,152,151, 96,  0,  0,  0,  0,  0,  0,  0,  0,
+};
+
+static const char PROGMEM animation_1[] = {
+    0,  0,  0,  0,  0,  0,  0,  0,240,  8, 12, 10,  2,  1,  1,  1,113,  1,114,  2, 12,248,  8,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 29, 39, 72,144,144,160, 96, 32, 34, 80, 80, 76, 35, 29,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+};
+
+static const char PROGMEM animation_2[] = {
+    0,  0,  0,  0,  0,  0,  0,  0,192, 48,  8,  4,  4,  2,  2,  2,  2,226,  2,228, 24,224, 64,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  3,  4,  8, 62, 88,144,160,160,160,224,164, 96, 16, 15,  8,  7,  0,  0,  0,  0,  0,  0,  0,  0,
+};
+
+
 void oled_render_layer(void) {
     switch (get_highest_layer(layer_state)) {
-        case 0:
-            oled_write_raw_P(number_0, sizeof(number_0));
-            break;
         case 1:
             oled_write_raw_P(number_1, sizeof(number_1));
             break;
@@ -110,40 +120,53 @@ void oled_render_layer(void) {
         case 4:
             oled_write_raw_P(number_4, sizeof(number_4));
             break;
+        case 0:
         default:
             oled_write_raw_P(number_0, sizeof(number_0));
             break;
     }
 }
 
-void oledkit_render_info_user(void) {
-    oled_advance_page(true);
-    oled_advance_page(true);
-    oled_advance_page(true);
+void oled_render_animation(void) {
+    static uint32_t uptime_s;
+    uptime_s = timer_read32() / 1000;
 
-    oled_render_layer();
+    switch (uptime_s % 4) {
+        case 1:
+        case 3:
+            oled_write_raw_P(animation_1, sizeof(animation_1));
+            break;
+        case 2:
+            oled_write_raw_P(animation_2, sizeof(animation_2));
+            break;
+        case 0:
+        default:
+            oled_write_raw_P(animation_0, sizeof(animation_0));
+            break;
+    }
 }
+
+void oledkit_render_info_user(void) {
+    oled_set_cursor(0, 3);
+    oled_render_layer();
+    oled_set_cursor(0, 10);
+    oled_render_animation();
+}
+
+// void oledkit_render_logo_user(void) {
+// }
+
+#endif
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return is_keyboard_master() ? OLED_ROTATION_270 : OLED_ROTATION_180;
 }
 
-#endif
-
-void pointing_device_init_user(void) {
+void keyboard_post_init_user(void) {
+    // なんか pointing_device_init_user が発火しないので、とりあえずここ。
     set_auto_mouse_enable(true);
 }
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    uint8_t layer = biton32(state);
-
-    if (get_auto_mouse_enable() && layer == get_auto_mouse_layer()) {
-        rgblight_sethsv(HSV_TURQUOISE);
-    } else if (layer == 4) {
-        rgblight_sethsv(HSV_RED);
-    } else {
-        rgblight_sethsv(HSV_OFF);
-    }
-
-    return state;
+void pointing_device_init_user(void) {
+    set_auto_mouse_enable(true);
 }
