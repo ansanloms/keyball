@@ -153,14 +153,11 @@ void oledkit_render_info_user(void) {
     oled_render_animation();
 }
 
-// void oledkit_render_logo_user(void) {
-// }
-
-#endif
-
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return is_keyboard_master() ? OLED_ROTATION_270 : OLED_ROTATION_180;
 }
+
+#endif
 
 void keyboard_post_init_user(void) {
     // なんか pointing_device_init_user が発火しないので、とりあえずここ。
