@@ -27,35 +27,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB   , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                        KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     , KC_MINS  ,
     KC_LCTL  , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                        KC_H     , KC_J     , KC_K     , KC_L     , KC_SCLN  , KC_ENT   ,
     KC_LSFT  , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                                        KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  , KC_RSFT  ,
-               KC_LALT  , KC_LGUI  ,            TT(1)    , KC_SPC   , MO(2)    ,                  MO(3)    , TT(4)    , XXXXXXX  , XXXXXXX  ,            TO(0)
+               KC_LALT  , KC_LGUI  ,            MO(1)    , KC_SPC   , MO(2)    ,                  MO(3)    , MO(4)    , XXXXXXX             , XXXXXXX  , TO(0)
   ),
 
   [1] = LAYOUT_universal(
-    KC_ESC   , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        _______  , _______  , _______  , _______  , _______  , _______  ,
-    _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        _______  , KC_BTN1  , KC_BTN2  , SCRL_MO  , KC_WH_U  , _______  ,
-    _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        _______  , KC_BTN4  , KC_BTN5  , _______  , KC_WH_D  , _______  ,
-               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , XXXXXXX  , XXXXXXX  ,            _______
+    KC_ESC   , _______  , _______  , _______  , _______  , _______  ,                                        _______  , _______  , _______  , _______  , _______  , KC_BSPC  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , KC_BTN1  , KC_BTN2  , SCRL_MO  , KC_WH_U  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , KC_BTN4  , KC_BTN5  , _______  , KC_WH_D  , _______  ,
+               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , _______             , _______  , _______
   ),
 
   [2] = LAYOUT_universal(
     KC_ESC   , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                                        KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , KC_BSPC  ,
-    _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        XXXXXXX  , KC_EQUAL , KC_BSLS  , KC_GRV   , KC_QUOT  , KC_DEL   ,
-    _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        XXXXXXX  , XXXXXXX  , KC_LBRC  , KC_RBRC  , XXXXXXX  , _______  ,
-               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , XXXXXXX  , XXXXXXX  ,            _______
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , KC_EQUAL , KC_BSLS  , KC_GRV   , KC_QUOT  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , _______  , _______  , _______  , _______  , _______  ,
+               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , _______             , _______  , _______
   ),
 
   [3] = LAYOUT_universal(
-    KC_ESC   , KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                                        XXXXXXX  , XXXXXXX  , KC_MUTE  , KC_VOLD  , KC_VOLU  , _______  ,
-    _______  , KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   ,                                        KC_LEFT  , KC_DOWN  , KC_UP    , KC_RIGHT , XXXXXXX  , _______  ,
-    _______  , KC_F11   , KC_F12   , KC_F13   , KC_F14   , KC_F15   ,                                        XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
-               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , XXXXXXX  , XXXXXXX  ,            _______
+    KC_ESC   , S(KC_1)  , S(KC_2)  , S(KC_3)  , S(KC_4)  , S(KC_5)  ,                                        S(KC_6)  , S(KC_7)     , S(KC_8)    , S(KC_9)    , S(KC_0)    , KC_BSPC  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , S(KC_EQUAL) , S(KC_BSLS) , S(KC_GRV)  , S(KC_QUOT) , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , KC_LBRC     , KC_RBRC    , S(KC_LBRC) , S(KC_RBRC) , _______  ,
+               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , _______                  , _______    , _______
   ),
 
   [4] = LAYOUT_universal(
-    KC_ESC   , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
+    KC_ESC   , KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                                        XXXXXXX  , KC_SLEP  , KC_MUTE  , KC_VOLD  , KC_VOLU  , KC_BSPC  ,
+    _______  , KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   ,                                        KC_LEFT  , KC_DOWN  , KC_UP    , KC_RIGHT , XXXXXXX  , _______  ,
+    _______  , KC_F11   , KC_F12   , KC_F13   , KC_F14   , KC_F15   ,                                        XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
+               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , _______             , _______  , _______
+  ),
+
+  [5] = LAYOUT_universal(
+    KC_ESC   , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , KC_BSPC  ,
     _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
     _______  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , _______  ,
-               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , XXXXXXX  , XXXXXXX  ,            _______
+               _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , _______             , _______  , _______
   ),
 };
 // clang-format on
@@ -89,6 +96,11 @@ static const char PROGMEM number_4[] = {
     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,255,255,255,255,255,255,  0,  0,  0,  0,  0,  0,  0,
 };
 
+static const char PROGMEM number_5[] = {
+    0,255,255,255,255,255,255, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63,  0,  0,255,255,255,255,255,255,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240,  0,  0,  0,  0,  0,  0,  0,  0,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,252,252,252,252,252,252,  0,  0,192,192,192,192,192,192,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,255,255,255,255,255,255,  0,
+    0, 15, 15, 15, 15, 15, 15,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240,240, 15, 15, 15, 15, 15, 15,  0,
+};
+
 static const char PROGMEM animation_0[] = {
     0,  0,  0,  0,  0,  0,  0,  0,  0,240, 12,  2,  2,  1, 65,129,  1,  1,  1,  2,114, 12,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 60, 71, 70, 76, 52, 36, 34, 33, 32, 32, 96,160,146,152,151, 96,  0,  0,  0,  0,  0,  0,  0,  0,
 };
@@ -114,6 +126,9 @@ void oled_render_layer(void) {
             break;
         case 4:
             oled_write_raw_P(number_4, sizeof(number_4));
+            break;
+        case 5:
+            oled_write_raw_P(number_5, sizeof(number_5));
             break;
         case 0:
         default:
