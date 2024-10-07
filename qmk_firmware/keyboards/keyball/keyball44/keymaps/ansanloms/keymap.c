@@ -20,6 +20,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+const uint16_t PROGMEM tab_q_combo[] = {KC_TAB, KC_Q, COMBO_END};
+const uint16_t PROGMEM p_mins_combo[] = {KC_P, KC_MINS, COMBO_END};
+const uint16_t PROGMEM scln_ent_combo[] = {KC_SCLN, KC_ENT, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(tab_q_combo, KC_ESC),
+    COMBO(p_mins_combo, KC_BSPC),
+    COMBO(scln_ent_combo, KC_DEL),
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
@@ -39,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [2] = LAYOUT_universal(
     KC_ESC   , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                                        KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , KC_BSPC  ,
-    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , KC_EQUAL , KC_BSLS  , KC_GRV   , KC_QUOT  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , KC_EQUAL , KC_BSLS  , KC_GRV   , KC_QUOT  , KC_DEL   ,
     _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , KC_LBRC  , KC_RBRC  , _______  , _______  , _______  ,
                _______  , _______  ,            _______  , _______  , _______  ,                  _______  , _______  , _______             , _______  , _______
   ),
