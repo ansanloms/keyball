@@ -20,12 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-const uint16_t PROGMEM tab_spc_combo[] = {KC_TAB, KC_SPC, COMBO_END};
-
-combo_t key_combos[] = {
-    COMBO(tab_spc_combo, KC_ESC),
-};
-
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default
@@ -174,6 +168,45 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 #endif
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static bool space_hold = false;
+
+    switch (keycode) {
+        case LT(2, KC_SPC):
+            // スペースキー相当を押下しているかどうかを管理。
+            if (record->event.pressed) {
+                space_hold = true;
+            } else {
+                space_hold = false;
+            }
+            break;
+
+        case KC_TAB:
+            // スペースキー相当を押下している場合は TAB を ESC にする。
+            if (record->event.pressed && space_hold) {
+                register_code(KC_ESC);
+                return false;
+            } else if (!record->event.pressed && space_hold) {
+                unregister_code(KC_ESC);
+                return false;
+            }
+            break;
+
+        case KC_MINS:
+            // スペースキー相当を押下している場合は - を BS にする。
+            if (record->event.pressed && space_hold) {
+                register_code(KC_BSPC);
+                return false;
+            } else if (!record->event.pressed && space_hold) {
+                unregister_code(KC_BSPC);
+                return false;
+            }
+            break;
+    }
+
+    return true;
+}
 
 void keyboard_post_init_user(void) {
     // なんか pointing_device_init_user が発火しないので、とりあえずここ。
