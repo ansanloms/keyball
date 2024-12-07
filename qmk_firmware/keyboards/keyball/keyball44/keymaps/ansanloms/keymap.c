@@ -20,14 +20,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-const uint16_t PROGMEM tab_q_combo[] = {KC_TAB, KC_Q, COMBO_END};
-const uint16_t PROGMEM p_mins_combo[] = {KC_P, KC_MINS, COMBO_END};
-const uint16_t PROGMEM scln_ent_combo[] = {KC_SCLN, KC_ENT, COMBO_END};
+const uint16_t PROGMEM tab_spc_combo[] = {KC_TAB, KC_SPC, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(tab_q_combo, KC_ESC),
-    COMBO(p_mins_combo, KC_BSPC),
-    COMBO(scln_ent_combo, KC_DEL),
+    COMBO(tab_spc_combo, KC_ESC),
 };
 
 // clang-format off
